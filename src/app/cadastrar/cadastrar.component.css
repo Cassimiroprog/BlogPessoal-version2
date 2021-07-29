@@ -1,0 +1,10 @@
+#img-bg {
+
+    background-image: url('../../assets/img/ImagemCadastro.jpg');
+  
+    min-height: 595px;
+  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} 
