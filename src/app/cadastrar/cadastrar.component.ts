@@ -1,4 +1,9 @@
+import { isGeneratedFile } from '@angular/compiler/src/aot/util';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Usuario } from '../model/Usuario';
+import { UsuarioLogin } from '../model/UsuarioLogin';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-cadastrar',
@@ -6,10 +11,40 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cadastrar.component.css']
 })
 export class CadastrarComponent implements OnInit {
+/* variaveis sempre declaradas em cima dos construtores
+usuarioLogin, estamos estanciandos os objetos 
+quando eu uso o this. traz pra mim todos os atributos*/
+usuario: Usuario = new Usuario
+confirmarSenha: string
+ tipoUsuario: string
 
-  constructor() { }
+ constructor(
+    private authService: AuthService,
+    private router: Router
+) { }
 
-  ngOnInit(): void {
+  ngOnInit()  {
+    
+    window.scroll(0,0)
+  }
+  confirmSenha(event: any) {
+    this.confirmarSenha = event.targe.value
+  }
+  tipoUser(event: any){
+    this.tipoUsuario = event.targe.value 
+  }
+
+  cadastrar(){
+    this.usuario.tipo = this.tipoUsuario
+  
+  if(this.usuario.senha != this.confirmarSenha){
+    alert('A senhas estão incorretas.')
+  } else {
+      this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {this.usuario = resp 
+      this.router.navigate(['/entrar']) 
+        alert("Usuario cadastrado com êxito")
+  })
+  }
   }
 
 }
