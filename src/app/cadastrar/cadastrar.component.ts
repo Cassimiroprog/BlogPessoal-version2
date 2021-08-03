@@ -28,10 +28,10 @@ confirmarSenha: string
     window.scroll(0,0)
   }
   confirmSenha(event: any) {
-    this.confirmarSenha = event.targe.value
+    this.confirmarSenha = event.target.value
   }
   tipoUser(event: any){
-    this.tipoUsuario = event.targe.value 
+    this.tipoUsuario = event.target.value 
   }
 
   cadastrar(){
@@ -40,7 +40,8 @@ confirmarSenha: string
   if(this.usuario.senha != this.confirmarSenha){
     alert('A senhas estão incorretas.')
   } else {
-      this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {this.usuario = resp 
+      this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {this.usuario = resp
+        console.log(this.usuario) 
       this.router.navigate(['/entrar']) 
         alert("Usuario cadastrado com êxito")
   })

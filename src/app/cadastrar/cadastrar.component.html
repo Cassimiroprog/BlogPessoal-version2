@@ -37,6 +37,12 @@
           </div>
   
           <div class="form-group">
+            <label for="DataNascimento">Data de nascimento </label>
+            <input [(ngModel)]='usuario.dataNascimento' class="form-control" type="date" name="dataNascimento" id="DataNascimento"
+            placeholder="" >
+          </div>
+  
+          <div class="form-group">
             <label for="tipo">Tipo de Usuário </label>
            <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
              <option>Selecione um tipo de usuário</option>
@@ -45,13 +51,12 @@
            </select>
           </div>
   
-          <div class="d-flex justify-content-center p-1">
-            <button type="submit" class="btn btn-danger mr-4" routerLink='entrar'>Entrar</button>
-            <button type="submit" class="btn btn-success" (click)= 'cadastrar()'>Cancelar</button>
-  
+          <div class="d-flex justify-content-around">
+            <button type="submit" class="mt-2 btn btn-danger" routerLink="/entrar">Cancelar</button>
+            <button type="submit" class="mt-2 btn btn-dark" (click)='cadastrar()'>Cadastrar</button>
+          </div>
           </div> 
         </div>
-  
   
   
         </div>
@@ -59,5 +64,4 @@
   
   </div>
   
-  </div>
   
