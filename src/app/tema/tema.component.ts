@@ -10,21 +10,21 @@ import { TemaService } from '../service/tema.service';
   styleUrls: ['./tema.component.css']
 })
 export class TemaComponent implements OnInit {
-
+//precisamos estanciar o objeto tema pois ele vai ser pego pelos objetos ngmodel// 
   tema: Tema = new Tema() 
   listaTemas: Tema[]
 
   constructor(
     private router: Router,
     private temaService: TemaService
-
+//injetando as dependencias necessarias//
   ) { }
 
   ngOnInit() { 
     if(environment.token == ''){
       this.router.navigate(['/entrar'])
     } 
-    this.findAllTemas() /*não esquecer de abrir e fechar o parenteses sempre pq estamos falando de um método*/
+    this.findAllTemas() /*não esquecer de abrir e fechar o parenteses, é um método*/
 
 
   }
@@ -35,11 +35,11 @@ export class TemaComponent implements OnInit {
       })
 }
 
-cadastrar(){
+cadastrar(){ //consigo chamar o métdo, ja coloquei o botao click// 
     this.temaService.postTema(this.tema).subscribe(((resp: Tema)=>{
       this.tema = resp
       alert('Tema cadastrado com sucesso!')
+      this.findAllTemas
       this.tema = new Tema()
-    })
-
-  }
+    }) 
+} 

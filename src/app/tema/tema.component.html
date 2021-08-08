@@ -38,43 +38,23 @@
             <tr>
                 <th scope="col">#</th> 
                 <th scope="col">Primeiro</th> 
-                <th scope="col">Último</th> 
-                <th scope="col">Nickname</th> 
+                <th scope="col">Último</th>  
         </tr>
         </thead> 
         <tbody>
-        <tr>
-        <th scope="row">#</th> 
-             <td>Cassi</td> 
-             <td>João</td>     
-             <td>@Mdechefe</td>
-             <td>Oss</td> 
+        <tr *ngFor='let tema of listeTemas'>
+        <th>{{tema.id}}</th> 
+             <td>{{tema.descricao}}</td> 
+             <td>
+              <td class="d-flex justify-content-end">
+                <button class="btn btn-info mr-3" >Editar</button>
+                <button class="btn btn-danger" >Apagar</button>
+              </td>    
     </tr>  
 </tbody>
 </table>
 </div> 
 </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-</div>
-</div>
 
 
 
