@@ -19,9 +19,22 @@ token = {
 getAllTema(): Observable<Tema[]>{
   return this.http.get<Tema[]>('http://localhost:8080/tema', this.token)// this token adicionado no header, adcionando esse objeto// 
 }
+
+getByIdTema(id: number): Observable<Tema>{
+  return this.http.get<Tema>(`http://localhost:8080/tema/${id}`, this.token)// ${id} pq passa por parametro o id igual o delete (visto no back end)// 
+
+
+}
 //precisa de um objeto pra colocar no banco de dados ''(tema: Tema)'', ele não é array de tema pq é unico, psota um tema por vez//  
 postTema(tema: Tema): Observable<Tema>{
   return this.http.post<Tema>('http://localhost:8080/tema', tema, this.token)
 }
+putTema(tema: Tema): Observable<Tema>{
+  return this.http.put<Tema>('http://localhost:8080/tema', tema, this.token)
 
 } 
+
+deleteTema(id: number){
+  return this.http.delete(`http://localhost:8080/tema/${id}`, this.token) 
+}
+}
