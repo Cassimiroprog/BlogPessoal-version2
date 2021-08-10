@@ -42,4 +42,5 @@ cadastrar(){ //consigo chamar o métdo, ja coloquei o botao click//
       this.findAllTemas
       this.tema = new Tema()
     }) 
-} 
+  } 
+
